@@ -1,7 +1,8 @@
-
-
-
-
+from add import add_flight
+from book import book_ticket
+from flight_data import flights
+from view import view_flight_details  # Import the view function
+from report import generate_flight_report  # Import the report function
 
 def main():
     while True:
@@ -9,8 +10,8 @@ def main():
         print("\nWhat would you like to do?")
         print("1. Add")
         print("2. Book")
-        print("3. View")
-        print("4. Report")
+        print("3. View Flight Details")
+        print("4. Generate Flight Report")
         print("5. Exit")
 
         try:
@@ -18,11 +19,12 @@ def main():
             if choice == 1:
                 add_flight()
             elif choice == 2:
-                book_flight()
+                book_ticket()
             elif choice == 3:
-                view_flight()
+                flight_number = int(input("Enter flight number: "))
+                view_flight_details(flight_number)  # Call the view flight details function
             elif choice == 4:
-                report_flight()
+                generate_flight_report()  # Call the report function
             elif choice == 5:
                 print("Thank you for using the Airline Management System!")
                 break
@@ -30,7 +32,6 @@ def main():
                 print("Invalid choice. Please select a valid option.")
         except ValueError:
             print("Invalid input. Please enter a numeric value for the choice.")    
-
 
 # Run the program
 if __name__ == "__main__":
